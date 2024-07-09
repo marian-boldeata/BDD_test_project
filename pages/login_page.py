@@ -10,7 +10,7 @@ class Login_Page(Browser):
     USERNAME_FIELD = (By.XPATH,'//input[@id="username"]')
     PASSWORD_FIELD = (By.XPATH,'//input[@id="password"]')
     LOGIN_SUBMIT_BUTTON = (By.XPATH,'//input[@id="login_button"]')
-    ALL_LOGIN_ERRORS = (*By.XPATH,'//div[@class="carton"]/div/ul/li[1]')
+    ALL_LOGIN_ERRORS = (By.XPATH,'//div[@class="carton"]/div/ul/li[1]')
 
 
     def type_in_username(self,username):
@@ -29,8 +29,7 @@ class Login_Page(Browser):
     def check_login_error(self, error_message):
         actual_error_message = self.driver.find_element(*self.ALL_LOGIN_ERRORS).text
         assert actual_error_message == error_message, f'Expected error : {error_message}, Received error : {actual_error_message}'
-        # TypeError: DriverMethods.find_element() takes from 1 to 3 positional arguments but 7 were given
-        # NEED TO FIX
+
 
 
 
