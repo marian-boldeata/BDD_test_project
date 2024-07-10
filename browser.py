@@ -15,4 +15,3 @@ class Browser():
 
     def close_browser(self):
         self.driver.quit()
-        self.driver.highlight_click()

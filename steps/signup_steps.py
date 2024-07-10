@@ -13,4 +13,4 @@ def step_impl(context):
 
 @then('I receive an error message "{error_message}"')
 def step_impl(context, error_message):
-    pass
+    context.signup_page.check_sigunp_erros(error_message)
