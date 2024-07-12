@@ -9,7 +9,7 @@ Feature: Will test the login module of TMDB application
     When I click the login button on login page
     Then I am logged into the application
 
-    @login
+    @login1
   Scenario Outline: Verify that user cannot log in with invalid username and password
     Given I am on the TMDB home page
     When I click on the login button on the navigation bar

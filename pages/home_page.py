@@ -11,8 +11,3 @@ class Home_Page(Browser):
     def go_to_homepage(self):
         self.driver.get('https://www.themoviedb.org/')
 
-    def click_login_button(self):
-        self.driver.find_element(*self.LOGIN_BUTTON_NAV_BAR).click()
-
-    def click_JOIN_TMDB_button(self):
-        self.driver.find_element(*self.JOIN_TMDB_BUTTON_NAV_BAR).click()

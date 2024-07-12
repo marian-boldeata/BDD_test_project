@@ -6,8 +6,8 @@ def step_impl(context):
 
 @when('I click on the login button on the navigation bar')
 def step_impl(context):
-    context.home_page.click_login_button()
+    context.base.click_on(context.locators.HOME_PAGE_LOGIN_BUTTON_NAV_BAR)
 
 @when('I click on Join TMDB button on navigation bar')
 def step_impl(context):
-    context.home_page.click_JOIN_TMDB_button()
+    context.base.click_on(context.locators.HOME_PAGE_JOIN_TMDB_BUTTON_NAV_BAR)

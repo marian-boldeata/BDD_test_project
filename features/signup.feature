@@ -1,7 +1,7 @@
 Feature: Will test the account creation module of TMDB application
 
 
-    @signup
+    @signup1
   Scenario Outline: Verify that anonymous user cannot create account with either invalid username, invalid email or invalid password
     Given I am on the TMDB home page
     When I click on Join TMDB button on navigation bar

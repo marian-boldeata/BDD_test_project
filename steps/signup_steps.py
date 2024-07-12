@@ -2,15 +2,15 @@ from behave import *
 
 @when('I insert invalid set of information - "{username}", "{password}", "{conf_password}", "{email}"')
 def step_impl(context,username, password, conf_password, email):
-    context.signup_page.type_in_username(username)
-    context.signup_page.type_in_password(password)
-    context.signup_page.type_in_confirm_password(conf_password)
-    context.signup_page.type_in_email(email)
+    context.base.insert_text(context.locators.SIGNUP_PAGE_USERNAME_FIELD, username)
+    context.base.insert_text(context.locators.SIGNUP_PAGE_PASSWORD_FIELD, password)
+    context.base.insert_text(context.locators.SIGNUP_PAGE_PASSWORD_CONFIRM_FIELD, conf_password)
+    context.base.insert_text(context.locators.SIGNUP_PAGE_EMAIL_FIELD, email)
 
 @when('I press the Sign Up button')
 def step_impl(context):
-    context.signup_page.click_sign_up()
+    context.base.click_hold(context.locators.SIGNUP_PAGE_SUBMIT_BUTTON)
 
 @then('I receive an error message "{error_message}"')
 def step_impl(context, error_message):
-    context.signup_page.check_sigunp_erros(error_message)
+    context.signup_page.check_signup_erros(error_message)

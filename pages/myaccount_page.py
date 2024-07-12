@@ -11,6 +11,3 @@ class Myaccount_Page(Browser):
     def check_if_logged(self):
         assert self.driver.title == 'My Profile — The Movie Database (TMDB)'
 
-    def logout(self):
-        self.driver.find_element(*self.USER_NAV_DROPDOWN).click()
-        self.driver.find_element(*self.USER_NAV_DROPDOWN_LOGOUT).click()
