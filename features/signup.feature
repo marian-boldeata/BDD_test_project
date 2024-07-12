@@ -1,7 +1,7 @@
 Feature: Will test the account creation module of TMDB application
 
 
-    @signup1
+
   Scenario Outline: Verify that anonymous user cannot create account with either invalid username, invalid email or invalid password
     Given I am on the TMDB home page
     When I click on Join TMDB button on navigation bar
@@ -20,7 +20,7 @@ Feature: Will test the account creation module of TMDB application
       | rando_+    | randomm_email@random.com| 1234       | 1234            | Username cannot contain plus signs                           |
       | rando_/    | randomm_email@random.com| 1234       | 1234            | Username cannot contain slashes                              |
 
-    @signup
+
   Scenario Outline: Verify that anonimous user cannot create account without providing either username, email or password
   Given I am on the TMDB home page
     When I click on Join TMDB button on navigation bar
@@ -39,5 +39,5 @@ Feature: Will test the account creation module of TMDB application
 
 
 
-      #need to implement error check in signup page, need good locator for errors - to be done
+
 
