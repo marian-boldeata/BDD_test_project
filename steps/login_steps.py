@@ -20,11 +20,16 @@ def step_impl(context,username,password):
 def step_impl(context, error_message):
     context.login_page.check_login_error(error_message)
 
-@when('I try to log in more than ten times with invalid credentials username "{username}", password "{password}"')
-def step_impl(context,username,password):
-    context.login_page.deplete_login_attempts(username,password)
+@when('I try to log in more than ten times with invalid username "{username}"')
+def step_impl(context,username):
+    context.base.deplete_login_attempts(
+        username,
+        context.locators.LOGIN_PAGE_USERNAME_FIELD,
+        context.locators.LOGIN_PAGE_SUBMIT_LOGIN_BUTTON,
+        context.locators.LOGIN_PAGE_OUT_OF_LOGIN_ATTEMPTS
+    )
 
-@then("I am blocked from loggin in again for 30 minutes")
+@then("I am blocked from logging in again for 30 minutes")
 def step_impl(context):
     context.login_page.check_if_blocked()
 

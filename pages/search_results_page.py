@@ -3,15 +3,15 @@ from selenium.webdriver.common.by import By
 from browser import Browser
 
 class Search_Results_Page(Browser):
-    SEARCH_RESULT_ITEM_TITLE = (By.XPATH, '//div[@class="content_wrapper"]//div[@class="title"]//a[@class="result"]/h2')
+
 
     def check_if_redirected(self, search_term):
         if search_term in self.driver.title:
             assert True
 
-    def check_search_results(self, search_term):
+    def check_search_results(self, search_term, locator):
         validated = False
-        result_items = self.driver.find_elements(*self.SEARCH_RESULT_ITEM_TITLE)
+        result_items = self.driver.find_elements(*locator)
         result_titles_text = []
         for item in result_items:
             if item.is_displayed():
@@ -20,6 +20,12 @@ class Search_Results_Page(Browser):
         for i in range(len(result_titles_text)):
             if search_term in result_titles_text[i]:
                 validated = True
-        print(result_titles_text)
 
         assert validated
+
+    def check_if_any_results(self, locator):
+        validated = False
+        if self.driver.find_element(*locator).is_displayed():
+            validated = True
+        assert validated
+

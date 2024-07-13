@@ -21,12 +21,12 @@ Feature: Will test the login module of TMDB application
       | testname_      |12345  | We couldn't find your username.                          |
       | mbx-bx         |N/A    | We couldn't validate your information. Want to try again?|
       | N/A            |123123 | We couldn't find your username.                          |
-    @
+
   Scenario: Verify that user will be blocked from trying to log in after 10 failed attempts
     Given I am on the TMDB home page
     When I click on the login button on the navigation bar
-    When I try to log in more than ten times with invalid credentials username "testname_", password "12345"
-    Then I am blocked from loggin in again for 30 minutes
+    When I try to log in more than ten times with invalid username "testname_"
+    Then I am blocked from logging in again for 30 minutes
 
 
 

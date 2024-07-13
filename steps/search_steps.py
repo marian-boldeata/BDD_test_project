@@ -11,4 +11,8 @@ def step_impl(context, search_term):
 
 @then('All search results contain text "{search_term}" in title')
 def step_impl(context,search_term):
-    context.search_results_page.check_search_results(search_term)
+    context.search_results_page.check_search_results(search_term, context.locators.SEARCH_RESULT_ITEM_TITLE)
+
+@then('There are no search results on the search results page')
+def step_impl(context):
+    context.search_results_page.check_if_any_results(context.locators.SEARCH_PAGE_NO_S_RESULTS)

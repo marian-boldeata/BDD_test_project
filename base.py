@@ -1,5 +1,4 @@
 import time
-
 from browser import Browser
 
 
@@ -19,3 +18,16 @@ class Base(Browser):
             pass
         else:
             self.driver.find_element(*locator).send_keys(text)
+
+    def deplete_login_attempts(self, username,  user_field,  sign_btn, expected_element):
+        depleted = False
+
+        while not depleted:
+            self.insert_text(user_field, username)
+            self.click_hold(sign_btn)
+            if self.driver.find_element(*expected_element).is_displayed():
+                depleted = True
+                break
+
+        assert depleted
+
