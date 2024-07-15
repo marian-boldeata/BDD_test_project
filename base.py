@@ -36,3 +36,8 @@ class Base(Browser):
 
         assert depleted
 
+
+    def filter_option(self, locator, select_text): # not used right now, no element with <select> tag tested so far
+        search_filter_bar = self.make_selector(locator)
+        search_filter_bar.select_by_visible_text(select_text)
+
