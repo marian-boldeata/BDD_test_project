@@ -29,3 +29,26 @@ class Search_Results_Page(Browser):
             validated = True
         assert validated
 
+    def filter_option(self, locator, select_text): # not used right now, no element with <select> tag tested so far
+        search_filter_bar = self.make_selector(locator)
+        search_filter_bar.select_by_visible_text(select_text)
+
+    def check_filter_result(self, locator, text):
+        verified = False
+
+        result_list = self.driver.find_elements(*locator)
+        for item in result_list:
+            if item.is_displayed():
+                item_type = item.get_attribute('data-media-type')
+            else:
+                continue
+            if item_type == text:
+                verified = True
+
+        assert verified
+
+
+
+
+
+

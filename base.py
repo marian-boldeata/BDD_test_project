@@ -1,5 +1,8 @@
 import time
 from browser import Browser
+from selenium.webdriver.support.ui import Select
+
+
 
 
 class Base(Browser):
@@ -12,6 +15,8 @@ class Base(Browser):
         self.action.move_to_element(button).perform()
         time.sleep(0.5)
         self.action.click(button).perform()
+
+
 
     def insert_text(self, locator, text):
         if text == "N/A":

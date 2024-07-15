@@ -22,15 +22,7 @@ class Login_Page(Browser):
             verified = True
         assert verified
 
-"""
-        try:
-            self.insert_text(user_field, username)
-            self.insert_text(pass_field,password)
-            self.click_on(sign_btn)
-            wait.until(EC.presence_of_element_located(expected_element))
-        except TimeoutError:
-            f'took to long'
-"""
+
 
 
 

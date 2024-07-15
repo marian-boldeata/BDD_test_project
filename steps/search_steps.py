@@ -16,3 +16,23 @@ def step_impl(context,search_term):
 @then('There are no search results on the search results page')
 def step_impl(context):
     context.search_results_page.check_if_any_results(context.locators.SEARCH_PAGE_NO_S_RESULTS)
+
+@when('I click on button Movies filter option')
+def step_impl(context):
+    context.base.click_on(context.locators.SEARCH_PAGE_MOVIE_FILTER)
+
+@then('All search results are "{text}"')
+def step_impl(context,text):
+    context.search_results_page.check_filter_result(context.locators.SEARCH_PAGE_ITEM_DATA_TYPE, text)
+
+@when('I click on People filter option')
+def step_impl(context):
+    context.base.click_on(context.locators.SEARCH_PAGE_PEOPLE_FILTER)
+
+@when('I click on TV People filter option')
+def step_impl(context):
+    context.base.click_on(context.locators.SEARCH_PAGE_TV_SHOWS_FILTER)
+
+@when('I click on Collections filter option')
+def step_impl(context):
+    context.base.click_on(context.locators.SEARCH_PAGE_COLLECTIONS_FILTER)

@@ -15,9 +15,9 @@ class Locators:
 
 
     "LOGIN PAGE LOCATORS"
-    LOGIN_PAGE_USERNAME_FIELD = (By.XPATH, '//input[@id="username"]')
-    LOGIN_PAGE_PASSWORD_FIELD = (By.XPATH, '//input[@id="password"]')
-    LOGIN_PAGE_SUBMIT_LOGIN_BUTTON = (By.XPATH, '//input[@id="login_button"]')
+    LOGIN_PAGE_USERNAME_FIELD = (By.ID, "username")
+    LOGIN_PAGE_PASSWORD_FIELD = (By.ID, "password")
+    LOGIN_PAGE_SUBMIT_LOGIN_BUTTON = (By.ID, "login_button")
     LOGIN_PAGE_OUT_OF_LOGIN_ATTEMPTS = (By.XPATH, '//h2[text()="Out of login attempts"]')
 
     "SIGNUP PAGE LOCATORS"
@@ -28,9 +28,16 @@ class Locators:
     SIGNUP_PAGE_SUBMIT_BUTTON = (By.ID, 'sign_up_button')
 
     "MY ACCOUNT PAGE LOCATORS"
-    MY_ACCOUNT_USER_NAV_DROPDOWN = (By.XPATH, '//span[@class="avatar background_color pink"]')
+    MY_ACCOUNT_USER_NAV_DROPDOWN = (By.XPATH, '//a[@aria-label="Profile and Settings"]')
     MY_ACCOUNT_USER_NAV_DROPDOWN_LOGOUT = (By.LINK_TEXT, 'Logout')
+
 
     "SEARCH PAGE LOCATORS"
     SEARCH_PAGE_NO_S_RESULTS = (By.XPATH,'//div[@class="search_results movie "]/div/p')
     SEARCH_RESULT_ITEM_TITLE = (By.XPATH, '//div[@class="content_wrapper"]//div[@class="title"]//a[@class="result"]/h2')
+    SEARCH_PAGE_FILTER_BAR = (By.XPATH,'//ul[@class="settings panel with_counts scroller"]')
+    SEARCH_PAGE_MOVIE_FILTER = (By.ID,'movie')
+    SEARCH_PAGE_PEOPLE_FILTER = (By.ID, 'person')
+    SEARCH_PAGE_TV_SHOWS_FILTER = (By.ID, 'tv')
+    SEARCH_PAGE_COLLECTIONS_FILTER = (By.ID, 'collection')
+    SEARCH_PAGE_ITEM_DATA_TYPE = (By.XPATH,'//a[@data-media-type]')

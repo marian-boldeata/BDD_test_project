@@ -4,10 +4,12 @@ from browser import Browser
 
 class Myaccount_Page(Browser):
 
-    USER_NAV_DROPDOWN = (By.XPATH,'//span[@class="avatar background_color pink"]')
-    USER_NAV_DROPDOWN_LOGOUT = (By.LINK_TEXT,'Logout')
+    NAV_BAR_USER_ICON = (By.XPATH,'//a[@aria-label="Profile and Settings"]')
 
 
     def check_if_logged(self):
-        assert self.driver.title == 'My Profile — The Movie Database (TMDB)'
+        if self.driver.find_element(*self.NAV_BAR_USER_ICON).is_displayed():
+            assert True
+        else:
+            assert False
 
