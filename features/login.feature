@@ -17,10 +17,10 @@ Feature: Will test the login module of TMDB application
     When I click the login button on login page
     Then I get an error message "<error_message>"
     Examples:
-      | username | password | error_message |
-      | testname_      |12345  | We couldn't find your username.                          |
-      | mbx-bx         |N/A    | We couldn't validate your information. Want to try again?|
-      | N/A            |123123 | We couldn't find your username.                          |
+      | username       | password | error_message                                            |
+      | testname_      |12345     | We couldn't find your username.                          |
+      | mbx-bx         |N/A       | We couldn't validate your information. Want to try again?|
+      | N/A            |123123    | We couldn't find your username.                          |
 
   Scenario: Verify that user will be blocked from trying to log in after 10 failed attempts
     Given I am on the TMDB home page
