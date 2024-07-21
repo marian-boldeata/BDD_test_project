@@ -1,1 +1,7 @@
 1. when opening dev tools, the page turns to mobile version automatically, regardless of window size
+
+2. if i try to login without inserting text in password field on login page, i no longer an error
+
+3. remove button inside movie card in watchlist does not work, says its stale
+
+4. if i add rating to a movie on my watchlist, and then clear the rating, it also removes the movie from the watchlist

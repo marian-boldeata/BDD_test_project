@@ -9,7 +9,7 @@ def step_impl(context, username, password):
 
 @when('I click the login button on login page')
 def step_impl(context):
-    context.base.click_on(context.locators.LOGIN_PAGE_SUBMIT_LOGIN_BUTTON)
+    context.base.click_hold(context.locators.LOGIN_PAGE_SUBMIT_LOGIN_BUTTON)
 
 @when('I type invalid username "{username}" and password "{password}" in corresponding input boxes on login page')
 def step_impl(context,username,password):

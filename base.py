@@ -17,9 +17,15 @@ class Base(Browser):
 
     def click_hold(self,locator):
         button = self.driver.find_element(*locator)
-        self.action.move_to_element(button).perform()
-        time.sleep(0.5)
-        self.action.click(button).perform()
+        self.action.move_to_element(button).click().perform()
+
+    def hover_over(self, locator):
+        element = self.driver.find_element(*locator)
+        self.action.move_to_element(element).perform()
+
+    def wait_for_element(self,locator):
+        wait = WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+        wait.click()
 
 
     def insert_text(self, locator, text):
@@ -28,10 +34,6 @@ class Base(Browser):
         else:
             self.driver.find_element(*locator).send_keys(text)
 
-    def press_enter(self):
-        self.action.send_keys(Keys.ENTER).perform()
-        time.sleep(0.3)
-        self.action.send_keys(Keys.ENTER).perform()
 
     def deplete_login_attempts(self, username,  user_field,  sign_btn, expected_element):
         depleted = False
