@@ -15,11 +15,10 @@ Feature: Will test functionality of watchlist and list features
       Given I am on the TMDB my account page
       When I hover over watchlist button on shortcut bar and click movies
       When I click on favourite button inside the movie card
-      When I got to overview - favourites - movies
       Then The movide should be added to favourites list
 
 
-
+    @list
     Scenario: Test functionality of Remove button from watchlist
       Given I am on the TMDB my account page
       When I hover over watchlist button on shortcut bar and click movies
@@ -27,12 +26,16 @@ Feature: Will test functionality of watchlist and list features
       Then The movie card is removed from my watchlist
 
       """
-      need better locator for MY_ACCOUNT_USER_SHORTCUTBAR_OVERVIEW_FAVOURITES_MOVIES_DROPDOWN - can't find it, even tought this is a correct path
-      need to write verification method for Then The movide should be added to favourites list
+
+      stale element not found // what to do with it - The movie card is removed from my watchlist
+
+      make separate files in locators folder for each page
+
 
       """
 
       # also, change login feature verification using below instruction
+
      """Dictionar care sa contina chei cu numele campurilor din formular si valoarea cheilor sa reprezinte eroarea care ar trebui sa apara pe campul respectiv
 
       In functia de verificare mesaje sa se extraga toate mesajele din browser intr-o lista.

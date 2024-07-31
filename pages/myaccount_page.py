@@ -16,12 +16,12 @@ class Myaccount_Page(Browser):
         else:
             assert False
 
-    def check_added_item(self, item_name ,locator):
+    def check_added_item(self, item_name, locator):
         verified = False
         actual_item = self.driver.find_element(*locator).text
         if item_name == actual_item:
             verified = True
-        assert verified, f'Adeed item {item_name}  not same as item in watchlist{actual_item}'
+        assert verified, f'Adeed item {item_name}  not same as item in watchlist {actual_item}'
 
     def check_if_removed(self, locator):
         removed = False

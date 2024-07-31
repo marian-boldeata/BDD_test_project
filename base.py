@@ -19,9 +19,31 @@ class Base(Browser):
         button = self.driver.find_element(*locator)
         self.action.move_to_element(button).click().perform()
 
-    def hover_over(self, locator):
-        element = self.driver.find_element(*locator)
-        self.action.move_to_element(element).perform()
+    def hover_over_click_chain(self, locator, locator1='', locator2=''):
+        if locator1 == '' and locator2 == '':
+            element = self.driver.find_element(*locator)
+            self.action.move_to_element(element).click().perform()
+
+        elif locator1 != '' and locator2 == '':
+            element = self.driver.find_element(*locator)
+            self.action.move_to_element(element).perform()
+
+            element1 = self.driver.find_element(*locator1)
+            self.action.move_to_element(element1).click().perform()
+
+        elif locator1 != '' and locator2 != '':
+            element = self.driver.find_element(*locator)
+            self.action.move_to_element(element).perform()
+
+            element1 = self.driver.find_element(*locator1)
+            self.action.move_to_element(element1).perform()
+
+            element2 = self.driver.find_element(*locator2)
+            self.action.move_to_element(element2).click().perform()
+
+
+
+
 
     def wait_for_element(self,locator):
         wait = WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))

@@ -24,8 +24,9 @@ def step_impl(context):
 
 @when('I hover over watchlist button on shortcut bar and click movies')
 def step_impl(context):
-    context.base.hover_over(context.locators.MY_ACCOUNT_USER_SHORTCUTBAR_WATCHLIST_DROPDOWN)
-    context.base.click_hold(context.locators.MY_ACCOUNT_USER_SHORTCUTBAR_WATCHLIST_MOVIES)
+    context.base.hover_over_click_chain(locator=context.locators.MY_ACCOUNT_USER_SHORTCUTBAR_WATCHLIST_DROPDOWN,
+                                        locator1=context.locators.MY_ACCOUNT_USER_SHORTCUTBAR_WATCHLIST_MOVIES)
+
 
 @when('I click the remove button inside the movie card')
 def step_impl(context):
@@ -35,16 +36,14 @@ def step_impl(context):
 def step_impl(context):
     context.base.click_on(context.locators.MY_ACCOUNT_USER_WATCHLIST_FIRST_TITLE_ADD_TO_FAV)
 
-@when("I got to overview - favourites - movies")
-def step_impl(context):
-    context.base.hover_over(context.locators.MY_ACCOUNT_USER_SHORTCUTBAR_OVERVIEW_DROPDOWN)
-    context.base.hover_over(context.locators.MY_ACCOUNT_USER_SHORTCUTBAR_OVERVIEW_FAVOURITES_DROPDOWN)
-    context.base.wait_for_element(context.locators.MY_ACCOUNT_USER_SHORTCUTBAR_OVERVIEW_FAVOURITES_MOVIES_DROPDOWN)
-
 @then('The movie card is removed from my watchlist')
 def step_impl(context):
     context.myaccount_page.check_if_removed(context.locators.MY_ACCOUNT_USER_WATCHLIST_MOVIE_CARD)
 
 @then('The movide should be added to favourites list')
 def step_impl(context):
-    pass
+    item_name = context.show_details_page.store_added_item(context.locators.MY_ACCOUNT_USER_WATCHLIST_FIRST_TITLE)
+    context.base.hover_over_click_chain(locator=context.locators.MY_ACCOUNT_USER_SHORTCUTBAR_OVERVIEW_DROPDOWN,
+                                        locator1=context.locators.MY_ACCOUNT_USER_SHORTCUTBAR_OVERVIEW_FAVOURITES_DROPDOWN,
+                                        locator2=context.locators.MY_ACCOUNT_USER_SHORTCUTBAR_OVERVIEW_FAVOURITES_MOVIES_DROPDOWN)
+    context.myaccount_page.check_added_item(item_name, context.locators.MY_ACCOUNT_USER_OVERVIEW_FAVOURITES_FIRST_TITLE)

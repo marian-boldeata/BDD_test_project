@@ -39,7 +39,7 @@ class Locators:
 
     MY_ACCOUNT_USER_TOGGLE_MOVIES = (By.XPATH,'//h3//a[@data-media-type="movie"]')
     MY_ACCOUNT_USER_WATCHLIST_FIRST_TITLE = (By.XPATH,'//div[@class="title"]/div/a')
-    MY_ACCOUNT_USER_WATCHLIST_MOVIE_CARD = (By.ID,'card_movie_6371aa49e9c0dc007ffcc26a')
+    MY_ACCOUNT_USER_WATCHLIST_MOVIE_CARD = (By.XPATH,'//div[@id="results_page_1"]/div[@data-object-id="6371aa49e9c0dc007ffcc26a"]')
 
     MY_ACCOUNT_USER_WATCHLIST_FIRST_TITLE_REMOVE = (By.XPATH,'//div[@class="action_bar"]/ul/li[4]/a')
     MY_ACCOUNT_USER_WATCHLIST_FIRST_TITLE_ADD_TO_FAV = (By.XPATH,'//div[@class="action_bar"]/ul/li[2]/a')
@@ -49,7 +49,9 @@ class Locators:
 
     MY_ACCOUNT_USER_SHORTCUTBAR_OVERVIEW_DROPDOWN = (By.XPATH, '//span[contains(text(), "Overview")]')
     MY_ACCOUNT_USER_SHORTCUTBAR_OVERVIEW_FAVOURITES_DROPDOWN = (By.XPATH,'//span[contains(text(), "Favourites")]')
-    MY_ACCOUNT_USER_SHORTCUTBAR_OVERVIEW_FAVOURITES_MOVIES_DROPDOWN = (By.XPATH,'//li[@id="new_shortcut_bar_mn_active"]/a')
+    MY_ACCOUNT_USER_SHORTCUTBAR_OVERVIEW_FAVOURITES_MOVIES_DROPDOWN = (By.XPATH,'//a[@href="/u/mbx-bx/favorites"]')
+
+    MY_ACCOUNT_USER_OVERVIEW_FAVOURITES_FIRST_TITLE = (By.XPATH,'//div[@id="card_movie_6371aa49e9c0dc007ffcc26a"]//div[@class="title"]/div/a')
 
 
 
