@@ -27,11 +27,11 @@ Feature: Will test functionality of watchlist and list features
 
       """
 
-      stale element not found // what to do with it - The movie card is removed from my watchlist
-
-      make separate files in locators folder for each page
 
 
+
+
+      report bugs in jira
       """
 
       # also, change login feature verification using below instruction
